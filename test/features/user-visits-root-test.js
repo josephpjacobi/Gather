@@ -7,4 +7,15 @@ describe('User visits root', () => {
       assert.equal(browser.getText('#items-container'), '');
     });
   });
+
+  describe('and can navigate', () => {
+    it('to /create', () => {
+      //Setup
+      browser.url('/');
+      //exercise
+      browser.click('a[href="create.html"]');
+      //verify
+      assert.include(browser.getText('body'), 'Create');
+    });
+  });
 });
