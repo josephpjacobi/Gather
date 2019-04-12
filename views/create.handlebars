@@ -1,0 +1,30 @@
+
+<div class="create-container">
+  <div class="create-card">
+    <div class="create-column">
+      <img id="created-image" src="" />
+    </div>
+    <div class="divider">
+    </div>
+    <div class="create-column">
+      <h2 class="form-title">Create</h2>
+
+      <form class="input-form" action="/items/create" method="post">
+        <input id="title-input" name="title" type="text">
+        <textarea id="description-input" name="description"></textarea>
+        <input id="imageUrl-input" name="imageUrl" type="text">
+        <button id="submit-button" type="submit">
+          <p>button text</p>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  var img = document.getElementById('created-image');
+  function handleChange(e) {
+    var path = e.target.value.match(/^(https*:\/\/)/i) ? '' : 'http://';
+    img.src = path + e.target.value;
+  }
+  document.getElementById('imageUrl-input').oninput = handleChange;
+</script>
